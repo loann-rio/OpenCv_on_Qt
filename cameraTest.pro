@@ -25,9 +25,12 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-win32:CONFIG(release, debug|release): LIBS += -LC:\Users\riolo\OpenCV-MinGW-Build-OpenCV-4.5.5-x64\x64\mingw\lib -lopencv_core455 -lopencv_imgproc455 -lopencv_videoio455
-else:win32:CONFIG(debug, debug|release): LIBS += -LC:\Users\riolo\OpenCV-MinGW-Build-OpenCV-4.5.5-x64\x64\mingw\lib -lopencv_core455 -lopencv_imgproc455 -lopencv_videoio455
+win32:CONFIG(release, debug|release): LIBS += -LC:\Users\riolo\OpenCV-MinGW-Build-OpenCV-4.5.5-x64\x64\mingw\lib -lopencv_core455 -lopencv_imgproc455 -lopencv_videoio455 -lopencv_highgui455 -llibopencv_objdetect455
+else:win32:CONFIG(debug, debug|release): LIBS += -LC:\Users\riolo\OpenCV-MinGW-Build-OpenCV-4.5.5-x64\x64\mingw\lib -lopencv_core455 -lopencv_imgproc455 -lopencv_videoio455 -lopencv_highgui455 -llibopencv_objdetect455
 else:unix: LIBS += -L$$PWD/../../../../../opencv/build/x64/vc16/lib/ -lopencv_world470
 
 INCLUDEPATH += C:\Users\riolo\OpenCV-MinGW-Build-OpenCV-4.5.5-x64\include
 DEPENDPATH += $$PWD/../../../../../opencv/build/include
+
+RESOURCES += \
+    res.qrc
